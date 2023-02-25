@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
     cmake \
     ninja-build
 
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /kernel
 
 CMD ["bash"]
