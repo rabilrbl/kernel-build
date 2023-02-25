@@ -2,6 +2,7 @@
 
 This repository contains a Docker image to compile the Linux kernel for Android devices.
 
+> All dependencies on the image will remain up to date as build workflow runs every day at 10:00 UTC.
 
 ## Pulling the Docker image
 
