@@ -26,4 +26,4 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /kernel
 
-CMD ["bash"]
+ENTRYPOINT [ "sh", "-c" ]
