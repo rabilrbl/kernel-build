@@ -10,7 +10,8 @@ RUN apt-get update && apt-get install -y \
     git \
     unzip \
     wget \
-    python \
+    python3 \
+    python-is-python3 \
     llvm \
     clang \
     lld \
