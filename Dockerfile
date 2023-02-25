@@ -1,7 +1,5 @@
 FROM ubuntu:latest
 
-LABEL maintainer="Mohammed Rabil <rabil@techie.com>"
-
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     curl \
     build-essential \
