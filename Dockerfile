@@ -20,9 +20,6 @@ RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y \
     wget \
     python3 \
     python-is-python3 \
-    llvm \
-    clang \
-    lld \
     cmake \
     gcc \
     ninja-build \
@@ -48,6 +45,9 @@ RUN git config --global pull.rebase ${PULL_REBASE}
 RUN sudo curl -s https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo \
         && sudo chmod a+x /usr/local/bin/repo \
         && repo --version
+
+# Download and install latest clang then setup as compiler
+RUN sudo curl -s https://apt.llvm.org/llvm.sh | sudo bash
 
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
