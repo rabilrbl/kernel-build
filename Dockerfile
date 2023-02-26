@@ -26,7 +26,8 @@ RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y \
     cmake \
     gcc \
     ninja-build \
-    ccache
+    ccache \
+    zip
 
 
 # Setup git config
