@@ -8,6 +8,12 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER kernelb
 
+RUN ls -la
+
+WORKDIR /home/kernelb
+
+RUN ls -la
+
 RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y \
     curl \
     build-essential \
