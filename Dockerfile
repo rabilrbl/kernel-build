@@ -44,7 +44,7 @@ ENV PULL_REBASE=${PULL_REBASE}
 RUN git config --global pull.rebase ${PULL_REBASE}
 
 # Install and setup latest repo, if needed
-RUN curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo \
+RUN mkdir -p ~/bin && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo \
      && chmod a+x ~/bin/repo && export PATH=~/bin:$PATH \
      && echo "export PATH=~/bin:$PATH" >> ~/.bashrc && source ~/.bashrc \
      && echo $PATH && repo --version \
