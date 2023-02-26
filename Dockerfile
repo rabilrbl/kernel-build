@@ -1,11 +1,11 @@
 FROM ubuntu:latest
 
-RUN useradd -l -u 55555 -G sudo -md /kernelb -s /bin/bash -p kernelb kernelb && \
-    sed -i.bkp -e 's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' /etc/sudoers && \
-    chown -hR kernelb:kernelb /kernelb
-ENV HOME=/kernelb
-ENV PATH=/kernelb/.local/bin:$PATH
-WORKDIR /kernelb
+RUN apt-get update && \
+      apt-get -y install sudo
+
+RUN useradd -m kernelb && echo "kernelb:kernelb" | chpasswd && adduser kernelb sudo
+
+USER kernelb
 
 RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y \
     curl \
