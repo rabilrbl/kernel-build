@@ -34,7 +34,7 @@ RUN export CCACHE_PATH=$(which ccache)
 
 # Setup git credentials, use ARGS if provided else use default values (see below)
 ARG GIT_NAME="KernelB"
-ARG GIT_EMAIL="kernelb@no-reply.github.com"
+ARG GIT_EMAIL="20230226+kernelb@users.noreply.github.com"
 ENV GIT_NAME=${GIT_NAME}
 ENV GIT_EMAIL=${GIT_EMAIL}
 
