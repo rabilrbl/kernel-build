@@ -52,4 +52,4 @@ RUN mkdir -p ~/bin && curl https://storage.googleapis.com/git-repo-downloads/rep
 
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
-ENTRYPOINT [ "bash", "-c" ]
+CMD [ "bash", "-c" ]
