@@ -55,7 +55,7 @@ RUN sudo curl -s https://storage.googleapis.com/git-repo-downloads/repo -o /usr/
 RUN sudo curl -s https://apt.llvm.org/llvm.sh > /tmp/llvm.sh \
         && sudo chmod a+x /tmp/llvm.sh \
         && sudo /tmp/llvm.sh \
-        && export LLVM_VERSION=$(curl -s https://apt.llvm.org/llvm.sh | grep -oP 'CURRENT_LLVM_STABLE=(\K[0-9.]+)') \
+        && export LLVM_VERSION=$(cat /tmp/llvm.sh | grep -oP 'CURRENT_LLVM_STABLE=(\K[0-9.]+)') \
         && sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-${LLVM_VERSION} 100 \
         && sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-${LLVM_VERSION} 100 \
         && clang --version \
