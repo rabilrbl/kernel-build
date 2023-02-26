@@ -50,4 +50,6 @@ RUN sudo curl https://storage.googleapis.com/git-repo-downloads/repo -o /usr/loc
 
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
+WORKDIR /home/kernelb/Kernel-Build
+
 CMD [ "bash", "-c" ]
