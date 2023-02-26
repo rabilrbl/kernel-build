@@ -56,6 +56,7 @@ RUN sudo curl -s https://apt.llvm.org/llvm.sh > /tmp/llvm.sh \
         && sudo chmod a+x /tmp/llvm.sh \
         && sudo /tmp/llvm.sh \
         && export LLVM_VERSION=$(cat /tmp/llvm.sh | grep -oP 'CURRENT_LLVM_STABLE=(\K[0-9.]+)') \
+        && sudo rm /tmp/llvm.sh \
         && sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-${LLVM_VERSION} 100 \
         && sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-${LLVM_VERSION} 100 \
         && clang --version \
