@@ -24,7 +24,10 @@ RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y \
     gcc \
     ninja-build \
     ccache \
-    zip
+    zip \
+    lsb-release \
+    software-properties-common \
+    gnupg
 
 
 # Setup git config
