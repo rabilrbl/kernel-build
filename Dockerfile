@@ -4,6 +4,7 @@ RUN apt-get update && \
       apt-get -y install sudo
 
 RUN useradd -m kernelb && echo "kernelb:kernelb" | chpasswd && adduser kernelb sudo
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 USER kernelb
 
