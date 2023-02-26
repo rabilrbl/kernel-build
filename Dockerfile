@@ -25,18 +25,8 @@ RUN sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y \
     lld \
     cmake \
     gcc \
-    ninja-build
-    
-# Setup CCACHE
-ENV USE_CCACHE=1
-# Find the path to the ccache binary
-RUN export CCACHE_PATH=$(which ccache)
-
-# Setup git credentials, use ARGS if provided else use default values (see below)
-ARG GIT_NAME="KernelB"
-ARG GIT_EMAIL="20230226+kernelb@users.noreply.github.com"
-ENV GIT_NAME=${GIT_NAME}
-ENV GIT_EMAIL=${GIT_EMAIL}
+    ninja-build \
+    ccache
 
 # Setup git config
 RUN git config --global user.name "${GIT_NAME}"
