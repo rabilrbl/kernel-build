@@ -48,7 +48,7 @@ RUN mkdir -p ~/bin && curl https://storage.googleapis.com/git-repo-downloads/rep
      && chmod a+x ~/bin/repo && export PATH=~/bin:$PATH \
      && echo "export PATH=~/bin:$PATH" >> ~/.bashrc \
      && echo $PATH && repo --version \
-     && echo "repo installed" || echo "repo not installed"
+     && echo "repo installed"
 
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
