@@ -46,7 +46,7 @@ RUN git config --global pull.rebase ${PULL_REBASE}
 # Install and setup latest repo, if needed
 RUN mkdir -p ~/bin && curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo \
      && chmod a+x ~/bin/repo && export PATH=~/bin:$PATH \
-     && echo "export PATH=~/bin:$PATH" >> ~/.bashrc && source ~/.bashrc \
+     && echo "export PATH=~/bin:$PATH" >> ~/.bashrc \
      && echo $PATH && repo --version \
      && echo "repo installed" || echo "repo not installed"
 
