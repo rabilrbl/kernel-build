@@ -44,7 +44,7 @@ ENV PULL_REBASE=${PULL_REBASE}
 RUN git config --global pull.rebase ${PULL_REBASE}
 
 # Install and setup latest repo, if needed
-RUN sudo curl https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo \
+RUN sudo curl -s https://storage.googleapis.com/git-repo-downloads/repo -o /usr/local/bin/repo \
         && sudo chmod a+x /usr/local/bin/repo \
         && repo --version
 
