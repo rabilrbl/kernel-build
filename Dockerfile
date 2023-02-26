@@ -47,7 +47,7 @@ RUN sudo curl -s https://storage.googleapis.com/git-repo-downloads/repo -o /usr/
         && repo --version
 
 # Download and install latest clang then setup as compiler
-RUN sudo curl -s https://apt.llvm.org/llvm.sh | sudo bash
+RUN sudo curl -s https://apt.llvm.org/llvm.sh | sudo bash && clang --version
 
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
