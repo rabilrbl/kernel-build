@@ -51,16 +51,13 @@ RUN sudo curl -s https://storage.googleapis.com/git-repo-downloads/repo -o /usr/
         && sudo chmod a+x /usr/local/bin/repo \
         && repo --version
 
-# Download and install latest clang then setup as compiler
+# Download and install latest clang
 RUN sudo curl -s https://apt.llvm.org/llvm.sh > /tmp/llvm.sh \
         && sudo chmod a+x /tmp/llvm.sh \
         && sudo /tmp/llvm.sh \
         && export LLVM_VERSION=$(cat /tmp/llvm.sh | grep -oP 'CURRENT_LLVM_STABLE=(\K[0-9.]+)') \
-        && sudo rm /tmp/llvm.sh \
-        && sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-${LLVM_VERSION} 100 \
-        && sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-${LLVM_VERSION} 100 \
-        && clang --version \
-        && clang++ --version
+        && for i in $(ls /usr/lib/llvm-$LLVM_VERSION/bin) ; do sudo ln -s /usr/lib/llvm-$LLVM_VERSION/bin/$i /usr/bin/$i ; done \
+        && sudo rm /tmp/llvm.sh
 
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
