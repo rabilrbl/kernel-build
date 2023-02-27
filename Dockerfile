@@ -2,6 +2,8 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+SHELL ["bash", "-c"]
+
 RUN apt-get update && \
       apt-get -y install sudo
 
