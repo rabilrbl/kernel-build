@@ -59,6 +59,12 @@ RUN sudo curl -s https://apt.llvm.org/llvm.sh > /tmp/llvm.sh \
         && for i in $(ls /usr/lib/llvm-$LLVM_VERSION/bin) ; do sudo ln -s /usr/lib/llvm-$LLVM_VERSION/bin/$i /usr/bin/$i ; done \
         && sudo rm /tmp/llvm.sh
 
+# Install and configure ZSH with git plugin
+RUN sudo apt-get install -y zsh \
+        && sudo chsh -s /usr/bin/zsh kernelb \
+        && sudo sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" \
+        && sudo sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions zsh-syntax-highlighting)/g' /home/kernelb/.zshrc 
+
 RUN sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 CMD [ "bash", "-c" ]
